@@ -93,7 +93,7 @@ class ApplicationTests {
 		/* Prueba realizada para obtener una respuesta HTTP 404. */
 		mock.perform(put("/curso")
 			.contentType(MediaType.APPLICATION_JSON)
-			.content("{\"nombre\":\"Python\",\"duracion\":45,\"horario\":\"O\"}")
+			.content("{\"nombre\":\"Pyython\",\"duracion\":45,\"horario\":\"O\"}")
 			).andDo(print());
 	}
 
