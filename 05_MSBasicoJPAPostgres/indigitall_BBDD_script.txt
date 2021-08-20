@@ -1,0 +1,28 @@
+-- Table: public.clientes_dispositivos
+
+-- DROP TABLE public.clientes_dispositivos;
+
+CREATE TABLE IF NOT EXISTS public.clientes_dispositivos
+(
+    id integer NOT NULL DEFAULT nextval('clientes_dispositivos_id_seq'::regclass),
+    hash_dni character varying COLLATE pg_catalog."default" NOT NULL,
+    marketing boolean NOT NULL,
+    platform character varying COLLATE pg_catalog."default",
+    device_brand character varying COLLATE pg_catalog."default",
+    device_model character varying COLLATE pg_catalog."default",
+    os_name character varying COLLATE pg_catalog."default",
+    os_version character varying COLLATE pg_catalog."default",
+    push_token character varying COLLATE pg_catalog."default",
+    browser_public_key character varying COLLATE pg_catalog."default",
+    CONSTRAINT clientes_dispositivos_pkey PRIMARY KEY (id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.clientes_dispositivos
+    OWNER to postgres;
+	
+	
+INSERT INTO public.clientes_dispositivos(
+	id, hash_dni, marketing, platform, device_brand, device_model, os_name, os_version, push_token, browser_public_key)
+	VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);

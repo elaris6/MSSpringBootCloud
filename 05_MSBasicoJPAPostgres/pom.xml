@@ -5,14 +5,14 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.5.3</version>
+		<version>2.5.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.example</groupId>
-	<artifactId>05_MSBasicoJPAMysql</artifactId>
+	<groupId>com.springboot</groupId>
+	<artifactId>05_MSBasicoJPAPostgres</artifactId>
 	<version>1.0</version>
-	<name>05_MSBasicoJPAMysql</name>
-	<description>Ejemplo MS con uso JPA</description>
+	<name>05_MSBasicoJPAPostgres</name>
+	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
@@ -27,8 +27,8 @@
 		</dependency>
 
 		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
@@ -36,13 +36,7 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		
-		<!-- Antes de empaquetar el jar se debe eliminar la dependencia del "junit-vintage-engine"
-		dentro del "starter-test" si se tiene, porque podría provocar conflictos. -->
-		
 	</dependencies>
-	
-	
 
 	<build>
 		<plugins>

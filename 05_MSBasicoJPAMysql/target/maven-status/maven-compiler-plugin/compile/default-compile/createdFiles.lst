@@ -1,0 +1,8 @@
+com\local\contactos\dao\ContactoDaoImpl.class
+com\local\contactos\service\ContactoService.class
+com\local\contactos\controller\ContactosController.class
+com\local\contactos\dao\ContactoDao.class
+com\local\contactos\model\Contacto.class
+com\local\contactos\service\ContactoServiceImpl.class
+com\local\contactos\dao\ContactoJpaSpring.class
+com\local\contactos\Application.class

@@ -28,18 +28,18 @@ public interface ContactoJpaSpring extends JpaRepository<Contacto, Integer>{
 	
 	/* Búsqueda por un campo concreto. El nombre del campo en el método deb ser exactamente
     igual que en la clase entidad.*/
-	Contacto findByEmail(String email);
+    public Contacto findByEmail(String email);
 	/* Búsqueda combinada por dos campos. */
     public Contacto findByEmailAndTelefono(String email, String telefono);
     /* Búsqueda por un campo que contenga un substring ignorando además las mayúsc/minusc. */
-    public List<Contacto> findEmailContainingIgnoreCase(String cadena);
+    public List<Contacto> findByEmailContainingIgnoreCase(String cadena);
 	
 	/* Definición de método con JPQL personalizado para realizar misma búsuqeda que 
 	 * ejemplo previo con convenciones SringJPA. */
     @Query("SELECT c FROM Contacto c WHERE c.email LIKE %:cadena%")
     public List<Contacto> buscarContactoPorEmail(@Param("cadena") String cadena);
     /* Misma consulta con parámetros ordenados. */
-    //@Query("SELECT c FROM Contacto c WHERE c.email LIKE ?1%")
+    //@Query("SELECT c FROM Contacto c WHERE c.email LIKE ?1")
     //public List<Contacto> buscarContactoPorEmail(String cadena);
     
     /* Definición de método transaccional personalizado.
@@ -47,7 +47,7 @@ public interface ContactoJpaSpring extends JpaRepository<Contacto, Integer>{
     se realice de manera consistente al ser una modificación de la BBDD. */
     @Transactional
     @Modifying
-    @Query("DELETE FROM Contacto c WHERE c.email=?1%")
+    @Query("DELETE FROM Contacto c WHERE c.email=?1")
     void eliminarPorEmail(String email);
 	
 	
