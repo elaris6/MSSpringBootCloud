@@ -1,22 +1,34 @@
 package com.springboot.msbasico.model;
 
 import java.io.Serializable;
-import javax.persistence.*;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 
 
 /**
  * Clase autogenerada por el asistente JPA de Eclipse.
- * 
+ *
  */
 @Entity
 @Table(name="clientes_dispositivos")
-@NamedQuery(name="ClientesDispositivo.findAll", query="SELECT c FROM ClientesDispositivo c")
-public class ClientesDispositivo implements Serializable {
+@NamedQuery(name="CliDisp.findAll", query="SELECT c FROM CliDisp c")
+public class CliDisp implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	/* Se ha modificado el tipo asignado por JPA Tools de Integer a int, para que
+	 * la búsqueda del id trate de forma sencilla el valor "null".
+	 * Si "id" está declarado como "int" y es null, al hacer getId(id), devolverá 0.
+	 * Sin embargo, si está declarado como "Integer" devolverá "null" y sería necesario
+	 * hacer un tratamiento específico de este valor. */
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer id;
+	private int id;
 
 	@Column(name="browser_public_key")
 	private String browserPublicKey;
@@ -43,14 +55,14 @@ public class ClientesDispositivo implements Serializable {
 	@Column(name="push_token")
 	private String pushToken;
 
-	public ClientesDispositivo() {
+	public CliDisp() {
 	}
 
-	public Integer getId() {
+	public int getId() {
 		return this.id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -133,7 +145,7 @@ public class ClientesDispositivo implements Serializable {
 				+ ", osName=" + osName + ", osVersion=" + osVersion + ", platform=" + platform + ", pushToken="
 				+ pushToken + "]";
 	}
-	
-	
+
+
 
 }
