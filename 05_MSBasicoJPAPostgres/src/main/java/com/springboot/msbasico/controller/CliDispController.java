@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -35,8 +36,8 @@ public class CliDispController {
 		return service.buscarCliDispPorHashDni(hash);
 	}
 	
-	@GetMapping(value = "/listarDni/{dni}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<CliDisp> listarCliDispDni(@PathVariable("dni") String dni){
+	@GetMapping(value = "/listarDni", produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<CliDisp> listarCliDispDni(@RequestParam("dni") String dni){
 
 		return service.buscarCliDispPorDni(dni);
 	}

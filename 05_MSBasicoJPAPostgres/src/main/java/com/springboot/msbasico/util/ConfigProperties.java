@@ -5,6 +5,7 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
+/* Clase auxiliar para recuperar atributos del fichero de propiedades. */
 @Component
 @PropertySource("classpath:application.properties")
 public class ConfigProperties {

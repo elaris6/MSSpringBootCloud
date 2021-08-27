@@ -1,13 +1,14 @@
 package com.springboot.msbasico.service;
 
-import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.springboot.msbasico.dao.CliDispDao;
 import com.springboot.msbasico.model.CliDisp;
+import com.springboot.msbasico.util.ConfigProperties;
 import com.springboot.msbasico.util.HMAC;
 
 /* Clase implementadora de la capa de servicio, que será la que incluya toda la
@@ -20,6 +21,15 @@ public class CliDispServiceImpl implements CliDispService {
 
 	@Autowired
 	CliDispDao dao;
+	
+	/* Leer una propiedad individual y asignarla a una variable local de clase. */
+//	@Value("${hash.key}")
+//	private String key;
+	
+	/* Otra opción es construir una clase auxiliar que permita recuperar cualquier
+	 * atributo de las propiedades. */
+	@Autowired
+	ConfigProperties props;
 
 	@Override
 	public List<CliDisp> listarTodosCliDisp() {
@@ -36,14 +46,8 @@ public class CliDispServiceImpl implements CliDispService {
 	@Override
 	public List<CliDisp> buscarCliDispPorDni(String dni) {
 		
-		String hmacSha256 = null;
-		try {
-		      hmacSha256 = HMAC.calcHmacSha256(dni.getBytes("UTF-8"));
-		      System.out.println(hmacSha256);
-		    } catch (UnsupportedEncodingException e) {
-		      e.printStackTrace();
-		    }
-		
+		HMAC hash = new HMAC();
+		String hmacSha256 = hash.calcHmacSha256(props.getConfigValue("hash.key"), dni);
 		return dao.buscarCliDispHashDni(hmacSha256);
 	}
 

@@ -1,18 +1,13 @@
 package com.springboot.msbasico.util;
 
-import java.io.UnsupportedEncodingException;
-import java.math.BigInteger;
-
-
 public class testHMAC {
-	
+
+	static HMAC hash = new HMAC();
+
 	public static void main(String[] args) {
 
-		try {
-			  String hmacSha256 = HMAC.calcHmacSha256("053406292Q".getBytes("UTF-8"));
-		      System.out.println(hmacSha256);
-		    } catch (UnsupportedEncodingException e) {
-		      e.printStackTrace();
-		    }
+		
+		String hmacSha256 = hash.calcHmacSha256("191222364559439dcc664f27.70714536","053406292Q");
+	    System.out.println(hmacSha256);
 	}
 }
