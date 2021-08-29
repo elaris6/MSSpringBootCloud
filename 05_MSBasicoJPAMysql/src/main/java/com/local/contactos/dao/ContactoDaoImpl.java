@@ -28,6 +28,12 @@ public class ContactoDaoImpl implements ContactoDao {
 		
 		return agenda.findByEmail(email);
 	}
+	
+	@Override
+	public Contacto recuperarContactoDni(String dni) {
+		
+		return agenda.findByDni(dni);
+	}
 
 	@Override
 	public void eliminarContacto(String email) {

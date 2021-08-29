@@ -49,6 +49,8 @@ public interface ContactoJpaSpring extends JpaRepository<Contacto, Integer>{
     @Modifying
     @Query("DELETE FROM Contacto c WHERE c.email=?1")
     void eliminarPorEmail(String email);
+    
+    public Contacto findByDni(String dni);
 	
 	
 }

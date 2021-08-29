@@ -36,7 +36,7 @@ public class PersonaController {
 		// Se convierte la fecha del path param a un objeto Date de Java
 		Date fecha = null;
 		try {
-			fecha = new SimpleDateFormat("ddmmyyyy").parse(fechaNacimiento);
+			fecha = new SimpleDateFormat("ddMMyyyy").parse(fechaNacimiento);
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
@@ -67,8 +67,8 @@ public class PersonaController {
 		 * https://www.netjstech.com/2015/09/resolving-local-variable-defined-in-enclosing-scope-must-be-final-or-effectively-final-error.html*/
 		Date[] fechas = {null, null};
 		try {
-			fechas[0] = new SimpleDateFormat("ddmmyyyy").parse(fechaNac1);
-			fechas[1] = new SimpleDateFormat("ddmmyyyy").parse(fechaNac2);
+			fechas[0] = new SimpleDateFormat("ddMMyyyy").parse(fechaNac1);
+			fechas[1] = new SimpleDateFormat("ddMMyyyy").parse(fechaNac2);
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}

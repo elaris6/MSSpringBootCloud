@@ -60,5 +60,11 @@ public class ContactoServiceImpl implements ContactoService {
 		
 		return dao.recuperarContacto(idContacto);
 	}
+	
+	@Override
+	public Contacto buscarContactoDni(String dni) {
+		
+		return dao.recuperarContactoDni(dni);
+	}
 
 }

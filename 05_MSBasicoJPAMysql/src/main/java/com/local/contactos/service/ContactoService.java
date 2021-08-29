@@ -18,4 +18,6 @@ public interface ContactoService {
 	
 	Contacto buscarContacto(int idContacto);
 	
+	Contacto buscarContactoDni(String dni);
+	
 }

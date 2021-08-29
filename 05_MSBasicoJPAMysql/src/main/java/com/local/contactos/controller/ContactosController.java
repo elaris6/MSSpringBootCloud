@@ -35,9 +35,16 @@ public class ContactosController {
 	
 	
 	@GetMapping(value = "/contacto", produces = MediaType.APPLICATION_JSON_VALUE)
-	public Contacto recuperarContacto(@RequestParam("id") int id) {
+	public Contacto recuperarContacto(@RequestParam(name = "id", required = false) Integer id, @RequestParam(name = "dni", required = false)String dni) {
 		
-		return service.buscarContacto(id);
+		if (id != null) {
+			return service.buscarContacto(id);
+		} else if (dni != null) {
+			return service.buscarContactoDni(dni);
+		} else {
+			return null;
+		}
+
 	}
 	
 	
@@ -66,5 +73,4 @@ public class ContactosController {
 		return String.valueOf(service.eliminarContacto(id));
 	}
 
-	
 }

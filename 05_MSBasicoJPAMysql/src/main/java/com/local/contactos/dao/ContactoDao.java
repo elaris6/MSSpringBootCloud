@@ -20,4 +20,6 @@ public interface ContactoDao {
 	Contacto recuperarContacto(int idContacto);
 	
 	void actualizarContacto(Contacto contacto);
+	
+	Contacto recuperarContactoDni(String dni);
 }

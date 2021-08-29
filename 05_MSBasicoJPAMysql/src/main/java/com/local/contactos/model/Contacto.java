@@ -32,6 +32,8 @@ public class Contacto implements Serializable {
 	private String nombre;
 
 	private String telefono;
+	
+	private String dni;
 
 	public Contacto() {
 	}
@@ -75,5 +77,15 @@ public class Contacto implements Serializable {
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
+
+	public String getDni() {
+		return dni;
+	}
+
+	public void setDni(String dni) {
+		this.dni = dni;
+	}
+	
+	
 
 }
