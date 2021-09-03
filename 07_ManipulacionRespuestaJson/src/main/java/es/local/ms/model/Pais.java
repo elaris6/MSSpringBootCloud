@@ -1,5 +1,7 @@
 package es.local.ms.model;
 
+import java.util.List;
+
 public class Pais {
 
 	private String name;
@@ -9,17 +11,20 @@ public class Pais {
 	private String apha3Code;
 	
 	private String capital;
+	
+	private List<String> langs;
 
 	public Pais() {
 		super();
 	}
 
-	public Pais(String name, String apha2Code, String apha3Code, String capital) {
+	public Pais(String name, String apha2Code, String apha3Code, String capital, List<String> langs) {
 		super();
 		this.name = name;
 		this.apha2Code = apha2Code;
 		this.apha3Code = apha3Code;
 		this.capital = capital;
+		this.langs = langs;
 	}
 
 	public String getName() {
@@ -52,6 +57,14 @@ public class Pais {
 
 	public void setCapital(String capital) {
 		this.capital = capital;
+	}
+
+	public List<String> getLangs() {
+		return langs;
+	}
+
+	public void setLangs(List<String> langs) {
+		this.langs = langs;
 	}
 	
 	
