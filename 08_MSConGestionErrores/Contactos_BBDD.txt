@@ -1,0 +1,21 @@
+CREATE TABLE `contactos` (
+  `id_contacto` int NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(45) NOT NULL,
+  `email` varchar(45) NOT NULL,
+  `telefono` varchar(9) NOT NULL,
+  `fecha_nacimiento` date DEFAULT NULL,
+  PRIMARY KEY (`id_contacto`)
+);
+
+
+INSERT INTO `contactos` (nombre, email, telefono, fecha_nacimiento) VALUES 
+('Israel Balboa','papi@mail.com','666000999','1979-02-17'),
+('Mari Cuesta','mami@mail.com','666999777','1980-10-16'),
+('Rubén Balboa','bother@mail.com','666333999','1990-05-18'),
+('Jorge Salas','friend1@mail.com','666111222','1979-04-26'),
+('Diego Muriel','friend2@mail.com','666111333','1979-01-18'),
+('Daniel Peña','friend3@mail.com','666111444','1981-04-14'),
+('Joaquín García','friend4@mail.com','666000111','1979-01-05'),
+('Vicenta Jaurena','mommy@mail.com','666999111','1956-10-27'),
+('Javier Pérez','primo1@mail.com','666444111','19781-01-02'),
+('Patricia Jaurena','prima1@mail.com','666888111','1983-02-12');
