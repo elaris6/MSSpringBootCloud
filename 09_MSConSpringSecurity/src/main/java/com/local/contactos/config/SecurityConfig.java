@@ -6,14 +6,15 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 //import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 /* Clase de configuración ("@Configuration") de seguridad ("@EnableWebSecurity").
  * Se podría incluir en la clase de "Application", pero para no alterar la naturaleza
  * de ésta, es más recomendable crear una clase separada para este fin. */
 
-@EnableWebSecurity
 @Configuration
+@EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	// Método para la definición de roles y usuarios
@@ -55,15 +56,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		
 		http
-			.csrf().disable() // Se desactivan filtros internos para no requerir la autenticación cada vez que se accede a un recurso
+			.csrf().disable() // Se desactivan filtros internos para no requerir la autenticación cada vez que se accede a un mismo recurso
 			.authorizeRequests()
-			.antMatchers(HttpMethod.POST, "/agenda/contactos").hasRole("ADMIN")
-			.antMatchers("/agenda/contactos").authenticated()
+			.antMatchers(HttpMethod.POST, "/contactos").hasRole("ADMIN") // Proteger un recurso con un método concreto y requiriendo un rol
+			.antMatchers("/contactos").authenticated() // Proteger todos los métodos sobre un recurso requiriendo autenticación
 			//.antMatchers("/agenda/**").authenticated() // Se protege el acceso a cualquier recurso
 			//.antMatchers("/agenda/contactos/**").authenticated() // Se protege un recurso al que se envían parámetros. Si no se pone, no quedaría protegido en este caso
 			.and()
+			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS) // Para que no se guarde la sesión web y se autentique cada petición
+			.and()
 			.httpBasic(); // Autenticación básica (usuario + password). Otras opciones con certificados, OAuth..
 	}
-	
-	
 }
