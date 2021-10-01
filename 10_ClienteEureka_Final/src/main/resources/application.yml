@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: paises-final
+server:
+  port: 8089  
+eureka:
+  client:
+    registerWithEureka: false
+    service-url: 
+      default-zone: http://localhost:8761/eurekatest
