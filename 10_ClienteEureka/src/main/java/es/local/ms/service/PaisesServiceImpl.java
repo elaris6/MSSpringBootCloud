@@ -19,6 +19,7 @@ import es.local.ms.model.Pais;
 @Service
 public class PaisesServiceImpl implements PaisesService {
 
+	// Cuenta izzrra63@gmail.com:countrylayer.com
 	String url = "http://api.countrylayer.com/v2/all?access_key=156798882b1813ba144708d52cac4e25";
 	//Antigua url gratis
 	//String url = "https://restcountries.eu/rest/v2/all";
@@ -64,12 +65,16 @@ public class PaisesServiceImpl implements PaisesService {
 				/* Aquí se accede a una propiedad dentro de un nodo anidado en un sub array.
 				 * https://www.baeldung.com/jackson-nested-values */
 				List<String> langs = new ArrayList<>();
-				for(JsonNode jn:json.get("languages")) {
-					langs.add(jn.get("name").asText());
+				// Se comprueba si viene el elemento "languages", que no aparece en la nueva api
+				if(json.get("languages") != null) {
+					for(JsonNode jn:json.get("languages")) {
+						langs.add(jn.get("name").asText());
+					}
+					/* En lugar de recorrer el subarray se podría acceder deirectamente a uno
+					 * de los elementos. */
+					//pais.setLang(json.get("languages").get(0).get("name").asText());
 				}
-				/* En lugar de recorrer el subarray se podría acceder deirectamente a uno
-				 * de los elementos. */
-				//pais.setLang(json.get("languages").get(0).get("name").asText());
+				
 				pais.setLangs(langs);
 	
 				paises.add(pais);
