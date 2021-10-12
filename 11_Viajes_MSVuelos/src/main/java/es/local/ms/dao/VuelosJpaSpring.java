@@ -14,5 +14,6 @@ public interface VuelosJpaSpring extends JpaRepository<Vuelo, Integer> {
 	 * En función de la lógica a aplicar y el juego de datos, interesará
 	 * hacerlo directamente en la consulta, o en la capa de servicio.*/
 	@Query("SELECT v FROM Vuelo v WHERE v.fecha > CURRENT_DATE")
-	public List<Vuelo> vuelosFuturos();
+	List<Vuelo> vuelosFuturos();
+
 }

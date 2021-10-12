@@ -22,5 +22,20 @@ public class VuelosDaoImpl implements VuelosDao {
 	public List<Vuelo> listarVuelosDisp() {
 		return jpa.vuelosFuturos();
 	}
+	
+	@Override
+	public Vuelo buscarVuelo(int idVuelo) {
+		
+		/* Necesario el uso del método adicional "orElse()", ya que el
+		 * método "findById" devuelve un "Optional<T>" y se debe indicar
+		 * que devolver en caso de que no se encuentre nada. */
+		return jpa.findById(idVuelo).orElse(null);
+	}
+
+	@Override
+	public void reservarPlazas(Vuelo vuelo) {
+
+		jpa.save(vuelo);
+	}
 
 }

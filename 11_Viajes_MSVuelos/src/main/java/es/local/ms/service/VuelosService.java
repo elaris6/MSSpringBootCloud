@@ -6,7 +6,9 @@ import es.local.ms.model.Vuelo;
 
 public interface VuelosService {
 
-	List<Vuelo> listarVuelos();
+	public List<Vuelo> listarVuelos();
 	
-	List<Vuelo> listarVuelosDisp();
+	public List<Vuelo> listarVuelosDisp(int plazas);
+	
+	public void actualizarPlazas(int idVuelo, int plazas);
 }

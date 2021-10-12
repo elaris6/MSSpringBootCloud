@@ -9,5 +9,9 @@ public interface VuelosDao {
 	public List<Vuelo> listarVuelos();
 	
 	public List<Vuelo> listarVuelosDisp();
+	
+	public Vuelo buscarVuelo(int idVuelo);
+	
+	public void reservarPlazas(Vuelo vuelo);
 
 }

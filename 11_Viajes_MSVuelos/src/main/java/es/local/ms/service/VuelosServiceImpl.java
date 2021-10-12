@@ -19,8 +19,11 @@ public class VuelosServiceImpl implements VuelosService {
 	/* Se filtran los vuelos pasados directamente mediante la aplicación del
 	 * filtro en la capa DAO, al hacer la consulta en BBDD. */
 	@Override
-	public List<Vuelo> listarVuelosDisp() {
-		return dao.listarVuelosDisp();
+	public List<Vuelo> listarVuelosDisp(int plazas) {
+		
+		return dao.listarVuelosDisp().stream()
+				.filter(v -> v.getPlazas()>=plazas)
+				.collect(Collectors.toList());
 	}
 	
 	/* Se recuperan todos los elementos de la BBDD y el filtro se aplica en
@@ -35,6 +38,15 @@ public class VuelosServiceImpl implements VuelosService {
 				.collect(Collectors.toList());
 	}
 
+	@Override
+	public void actualizarPlazas(int idVuelo, int plazas) {
 
+		Vuelo vuelo = dao.buscarVuelo(idVuelo);
+		if(vuelo != null) {
+			
+			vuelo.setPlazas(vuelo.getPlazas()-plazas);
+			dao.reservarPlazas(vuelo);
+		} 
+	}
 
 }
