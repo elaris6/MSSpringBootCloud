@@ -1,0 +1,36 @@
+server:
+  port: 8090
+spring:
+  application:
+    name: servidor-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: serv-vuelos
+          #Se indica lb:// cuando se accede vía Eureka
+          uri: lb://servicio-vuelos #http://localhost:8082
+          predicates:
+            - Path=/svuelos/**
+          filters: 
+            - RewritePath=/svuelos/*, /
+          #Esto es para sustituir el path que le llega al gateway, por "/", ya que si no lo mantendría
+        
+        - id: serv-hoteles
+          #Se indica lb:// cuando se accede vía Eureka
+          uri: lb://servicio-hoteles #http://localhost:8081
+          predicates:
+            - Path=/shoteles/**
+          filters: 
+            - RewritePath=/shoteles/*, /
+          
+        - id: serv-reservas
+          #Se indica lb:// cuando se accede vía Eureka
+          uri: lb://servicio-reservas #http://localhost:8081
+          predicates:
+            - Path=/sreservas/**
+          filters: 
+            - RewritePath=/sreservas/*, /
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka

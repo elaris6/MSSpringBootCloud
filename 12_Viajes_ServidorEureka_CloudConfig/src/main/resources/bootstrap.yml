@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: eureka-server-test
+  cloud:
+    config:
+      uri: http://localhost:8888 #Localización MS de Spring Cloud Config
+      

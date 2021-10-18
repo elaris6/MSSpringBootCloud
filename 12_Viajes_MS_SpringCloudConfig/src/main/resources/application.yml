@@ -1,0 +1,13 @@
+server:
+  port: 8888 #Por convención se suele usar este puerto para el ms de configuracion
+spring:
+  profiles:
+    active: git
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/elaris6/SpringCloudConfig
+          #username: elaris6@gmail.com
+          #password: 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
+        default-label: main #nombre de la rama de los ficheros de configuración. Por defecto "master"
