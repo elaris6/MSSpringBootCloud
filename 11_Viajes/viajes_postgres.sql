@@ -46,6 +46,7 @@ ALTER TABLE IF EXISTS public.reservas
     OWNER to dbuser;
     
     
+<<<<<<< HEAD
 INSERT INTO public.vuelos (compania,fecha,precio,plazas) VALUES ('American Airlines',	'2021-11-09',	95.15,	150);
 INSERT INTO public.vuelos (compania,fecha,precio,plazas) VALUES ('Alitalia',	'2021-11-03',	65.15,	92);
 INSERT INTO public.vuelos (compania,fecha,precio,plazas) VALUES ('Iberia',	'2021-11-01',	105.15,	80);
@@ -63,3 +64,22 @@ INSERT INTO public.hoteles(nombre,categoria,precio,disponible) VALUES ('Eurostar
 INSERT INTO public.hoteles(nombre,categoria,precio,disponible) VALUES ('Arturo Norte',	4,	181.2,	true);
 INSERT INTO public.hoteles(nombre,categoria,precio,disponible) VALUES ('Posada Marinera',	3,	78.9,	true);
 INSERT INTO public.hoteles(nombre,categoria,precio,disponible) VALUES ('Hotelito del Amor',	2,	0,	false);
+=======
+INSERT INTO public.vuelos(compania, fecha, precio, plazas) VALUES ('American Airlines',	'2021-11-09',	95.15,	150);
+INSERT INTO public.vuelos(compania, fecha, precio, plazas) VALUES ('Alitalia',	'2021-11-03',	65.15,	92);
+INSERT INTO public.vuelos(compania, fecha, precio, plazas) VALUES ('Iberia',	'2021-11-01',	105.15,	80);
+INSERT INTO public.vuelos(compania, fecha, precio, plazas) VALUES ('Air Europa',	'2021-10-30',	69.75,	100);
+INSERT INTO public.vuelos(compania, fecha, precio, plazas) VALUES ('Lufthansa',	'2021-10-29',	87.45,	150);
+INSERT INTO public.vuelos(compania, fecha, precio, plazas) VALUES ('Spainair',	'2021-10-27',	57.45,	120);
+INSERT INTO public.vuelos(compania, fecha, precio, plazas) VALUES ('Air Europa',	'2021-10-01',	75.8,	0);
+INSERT INTO public.vuelos(compania, fecha, precio, plazas) VALUES ('Lufthansa',	'2021-09-30',	100.65,	7);
+INSERT INTO public.vuelos(compania, fecha, precio, plazas) VALUES ('Iberia',	'2021-09-17',	45.7,	32);
+
+INSERT INTO public.hoteles(nombre, categoria, precio, disponible) VALUES ('Ritz',	5,	350.89,	true);
+INSERT INTO public.hoteles(nombre, categoria, precio, disponible) VALUES ('Plaza Castilla',	4,	139.51,	true);
+INSERT INTO public.hoteles(nombre, categoria, precio, disponible) VALUES ('Hilton',	5,	299.3,	true);
+INSERT INTO public.hoteles(nombre, categoria, precio, disponible) VALUES ('Eurostars',	5,	332.8,	true);
+INSERT INTO public.hoteles(nombre, categoria, precio, disponible) VALUES ('Arturo Norte',	4,	181.2,	true);
+INSERT INTO public.hoteles(nombre, categoria, precio, disponible) VALUES ('Posada Marinera',	3,	78.9,	true);
+INSERT INTO public.hoteles(nombre, categoria, precio, disponible) VALUES ('Hotelito del Amor',	2,	0,	false);
+>>>>>>> 1da4bc83723d8a31b5c003ceadcbda4d7b1728e7
