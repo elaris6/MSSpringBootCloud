@@ -1,0 +1,113 @@
+{
+	"info": {
+		"_postman_id": "39b5ede5-9840-4ce5-8368-fcada1ede8d0",
+		"name": "Pruebas Desarrollo local",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "SpringBoot_CRUD_MySQL_contactos",
+			"item": [
+				{
+					"name": "Listar todos contactos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/agenda/contactos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"agenda",
+								"contactos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Borrar contacto por id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/agenda/contactos/20",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"agenda",
+								"contactos",
+								"20"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar contacto",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"idContacto\":11,\"email\":\"papuchi@mail.com\",\"fechaNacimiento\":\"1979-02-17\",\"nombre\":\"Israel Balboa\",\"telefono\":\"666333999\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/agenda/contactos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"agenda",
+								"contactos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear contacto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"email\":\"prima1@mail.com\",\"fechaNacimiento\":\"1983-02-12\",\"nombre\":\"Patricia Jaurena\",\"telefono\":\"666888111\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/agenda/contactos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"agenda",
+								"contactos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
