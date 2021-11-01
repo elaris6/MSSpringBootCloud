@@ -61,7 +61,7 @@ public class CursosController {
 	 * en la anotación "Mapping" el tipo de "MeidaType" de salida "APPLICATION_XML_VALUE".
 	 * En este caso Spring no podrá realizar la conversión si la clase de entidad no
 	 * está anotada para permitir la conversión a XML y no se añade la dependencia
-	 * necesaria  */
+	 * necesaria.  */
 	@GetMapping(value = "centro", produces = MediaType.APPLICATION_XML_VALUE)
 	public Centro getCentro() {
 		

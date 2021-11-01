@@ -2,11 +2,13 @@ package com.springboot.msbasico.model;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /* Para que una clase de entidad o modelo se pueda transformar en un XML es necesario
- * anotarla con "XmlAccessorType(XmlAccessType.FIELD)".
+ * anotarla con "XmlAccessorType(XmlAccessType.FIELD)" ó con "XmlRootElement".
  * Esto no evita que se pueda también transformar a la vez a JSON, por ejemplo. */
-@XmlAccessorType(XmlAccessType.FIELD)
+//@XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement
 public class Centro {
 
 	private String nombre;

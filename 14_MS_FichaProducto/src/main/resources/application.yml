@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: ms-ficha-producto
+server:
+  #Opción puerto aleatorio:
+  #https://www.javacodemonk.com/setting-a-random-port-in-spring-boot-application-at-startup-87022e01
+  port: 0
+  #port: 8082 #Puerto fijo
+  
+eureka:
+  instance:
+    #Generación aleatoria del instance-id
+    instance-id: ${random.value}:${spring.application.name}
+    #instance-id: instancia_2
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka

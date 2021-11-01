@@ -28,6 +28,14 @@ public class PersonaController {
 	RestTemplate template;
 
 	String url = "http://localhost:8081";
+	
+	@GetMapping(value = "/personas", produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<Persona> obtenerPersonas(){
+		
+		/* Se llama al GET de "/agenda/contactos" para recuperar la lista de contactos completa */
+		Persona[] personas = template.getForObject(url + "/agenda/contactos", Persona[].class);
+		return Arrays.asList(personas);
+	}
 
 	@GetMapping(value = "/personas/{nombre}/{email}/{telefono}/{fechaNacimiento}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Persona> altaPersona(@PathVariable("nombre") String nombre, @PathVariable("email") String email,
