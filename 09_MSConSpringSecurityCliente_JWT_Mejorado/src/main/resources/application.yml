@@ -1,0 +1,3 @@
+jwtpassword: user123
+jwtuser: user
+urlmsfinal: http://localhost:8081/agenda
